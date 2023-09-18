@@ -373,7 +373,7 @@ class ScirexFullReader(DatasetReader):
             span_saliency_labels.append(1 if label[-1] == "True" else 0)
             span_type_labels.append(label[0])
             span_features.append(
-                MultiLabelField(entities_to_features_map[(s, e)], label_namespace="section_feature_labels", num_labels=5)
+                MultiLabelField(entities_to_features_map[(s, e)], label_namespace="section_feature_labels", num_labels=17)
             )
 
         if len(spans) > 0:
@@ -405,7 +405,7 @@ class ScirexFullReader(DatasetReader):
                 ["Method"], fields["spans"], label_namespace="span_type_labels"
             )
             fields["span_features"] = ListField(
-                [MultiLabelField([], label_namespace="section_feature_labels", num_labels=5)]
+                [MultiLabelField([], label_namespace="section_feature_labels", num_labels=17)]
             )
 
         if len(relation_to_cluster_ids) > 0:
