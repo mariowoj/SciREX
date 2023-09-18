@@ -10,7 +10,7 @@ function(p) {
   local endpoint_span_embedding_dim = 2 * context_encoder_dim,
   local attended_span_embedding_dim = context_encoder_dim,
   local span_embedding_dim = endpoint_span_embedding_dim + attended_span_embedding_dim,
-  local n_features = 1 + 4 + 5,
+  local n_features = 1 + 4 + 17,
   local featured_embedding_dim = span_embedding_dim + n_features,
 
   ////////////////////////////////////////////////////////////////////////////////
