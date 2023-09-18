@@ -5,7 +5,7 @@ experiment_words_to_check = set("experiment|evaluation|evaluate|evaluate".split(
 dataset_words_to_check = set("dataset|corpus|corpora".split("|"))
 
 
-def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[str], generic_section_categories: List[str]):
+def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[str], generic_section_category: str):
     features_list = []
     for i, (s, e) in enumerate(sections):
         features = []
@@ -21,13 +21,12 @@ def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[
 
         if any(w in words for w in dataset_words_to_check):
             features.append("dataset")
-            features.append("experiment")
 
         if any(w in words for w in experiment_words_to_check):
             features.append("experiment")
 
-        if generic_section_categories != []:
-            features.append(generic_section_categories[i])
+        if generic_section_category != "":
+            features.append(generic_section_category)
 
         features_list.append(sorted(list(set(features))))
 
@@ -35,7 +34,7 @@ def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[
 
 def extract_sentence_features(sentences, words, entities, generic_section_categories):
     entities_to_features_map = {}
-    sentence_features = [get_features_for_sections(sents, words, generic_section_categories) for sents in sentences]
+    sentence_features = [get_features_for_sections(sents, words, generic_section_categories[i]) for i, sents in enumerate(sentences)]
     for e in entities:
         index = [
             (i, j)
@@ -56,7 +55,7 @@ def filter_to_doctaet(json_dict):
     words = json_dict["words"]
     sections = json_dict["sections"]
 
-    section_features = get_features_for_sections(sections, words, [])
+    section_features = get_features_for_sections(sections, words, "")
 
     new_words = []
     experiment_words = []
@@ -66,7 +65,7 @@ def filter_to_doctaet(json_dict):
             for s in sents :
                 new_words += words[s[0]:s[1]]
         else:
-            features = get_features_for_sections(sents, words, [])
+            features = get_features_for_sections(sents, words, "")
             # Check if sentence include any IBM labels
             for s, f in zip(sents, features) :
                 if 'Dataset' in f or 'Experiment' in f :
