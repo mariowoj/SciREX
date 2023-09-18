@@ -99,6 +99,8 @@ def clean_json_dict(json_dict):
         json_dict["sentences"], json_dict["sections"]
     )
 
+    json_dict["generic_section_categories"] = [category for category, _ in json_dict["generic_section_categories"]]
+
     return json_dict
 
 
@@ -157,10 +159,11 @@ class ScirexFullReader(DatasetReader):
                 entities: Dict[Span, EntityType] = json_dict["ner"]
                 corefs: Dict[ClusterName, List[Span]] = json_dict["coref"]
                 n_ary_relations: List[Dict[BaseEntityType, ClusterName]] = json_dict["n_ary_relations"]
+                generic_section_categories = json_dict["generic_section_categories"]
 
                 # Extract Document structure features
                 entities_to_features_map: Dict[Span, List[str]] = extract_sentence_features(
-                    sentences, words, entities
+                    sentences, words, entities, generic_section_categories
                 )
 
                 # Map cluster names to integer cluster ids
