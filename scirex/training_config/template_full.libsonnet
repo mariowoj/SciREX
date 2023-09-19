@@ -102,7 +102,7 @@ function(p) {
     batch_size: 25,
   },
   trainer: {
-    num_epochs: 30,
+    num_epochs: 1,
     grad_norm: 5.0,
     patience : 10,
     cuda_device : std.extVar("CUDA_DEVICE"),
