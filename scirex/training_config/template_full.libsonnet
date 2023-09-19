@@ -95,11 +95,11 @@ function(p) {
   },
   iterator: {
     type: "ie_batch",
-    batch_size: 5,
+    batch_size: 50,
   },
   validation_iterator: {
     type: "ie_batch",
-    batch_size: 5,
+    batch_size: 50,
   },
   trainer: {
     num_epochs: 20,
@@ -117,7 +117,7 @@ function(p) {
       type: "adam",
       lr: 1e-3,
       parameter_groups :[
-        [[".*bert_model.*"], {"lr": 2e-5}], 
+        [[".*bert_model.*"], {"lr": 2e-5}],
       ]
     },
     num_serialized_models_to_keep: 1,
