@@ -95,11 +95,11 @@ function(p) {
   },
   iterator: {
     type: "ie_batch",
-    batch_size: 16,
+    batch_size: 14,
   },
   validation_iterator: {
     type: "ie_batch",
-    batch_size: 16,
+    batch_size: 14,
   },
   trainer: {
     num_epochs: 30,
