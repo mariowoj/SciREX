@@ -37,7 +37,7 @@
   },
 
   trainer: {
-    num_epochs: 20,
+    num_epochs: 1,
     num_serialized_models_to_keep: 1,
     patience: 10,
     cuda_device: std.parseInt(std.extVar("CUDA_DEVICE")),
