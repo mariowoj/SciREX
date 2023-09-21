@@ -25,7 +25,7 @@ def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[
         if any(w in words for w in experiment_words_to_check):
             features.append("experiment")
 
-        if generic_section_category != "":
+        if generic_section_category != "" and generic_section_category != "unknown":
             features.append(generic_section_category)
 
         features_list.append(sorted(list(set(features))))
