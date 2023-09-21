@@ -95,14 +95,14 @@ function(p) {
   },
   iterator: {
     type: "ie_batch",
-    batch_size: 20,
+    batch_size: 9,
   },
   validation_iterator: {
     type: "ie_batch",
-    batch_size: 20,
+    batch_size: 9,
   },
   trainer: {
-    num_epochs: 30,
+    num_epochs: 1,
     grad_norm: 5.0,
     patience : 10,
     cuda_device : std.extVar("CUDA_DEVICE"),
