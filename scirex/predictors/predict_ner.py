@@ -113,6 +113,12 @@ def process_documents(documents, test_file):
             doc_id = json_dict["doc_id"]
             generic_section_categories = json_dict["generic_section_categories"]
 
+            len_sections = len(doc_id["sections"])
+            len_gen = len(generic_section_categories)
+            print(doc_id)
+            print(len_sections, len_gen, len_gen==len_sections)
+            print(generic_section_categories)
+
             documents[doc_id]["generic_section_categories"] = generic_section_categories
 
     return documents
