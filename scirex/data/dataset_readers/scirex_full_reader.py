@@ -102,7 +102,8 @@ def clean_json_dict(json_dict):
     if "generic_section_categories" in json_dict:
         json_dict["generic_section_categories"] = [category for category, _ in json_dict["generic_section_categories"]]
     else:
-        json_dict["generic_section_categories"] = ["" for _ in range(json_dict["sections"])]
+        print("No generic section categories present in json dict.")
+        print(json_dict.keys())
 
 
 
