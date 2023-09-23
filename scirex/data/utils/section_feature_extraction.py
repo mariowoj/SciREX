@@ -34,6 +34,10 @@ def get_features_for_sections(sections: List[Tuple[int, int]], words_list: List[
 
 def extract_sentence_features(sentences, words, entities, generic_section_categories):
     entities_to_features_map = {}
+    print("extracing sentence features")
+    print(len(sentences), len(generic_section_categories))
+    print(sentences)
+    print(generic_section_categories)
     sentence_features = [get_features_for_sections(sents, words, generic_section_categories[i]) for i, sents in enumerate(sentences)]
     for e in entities:
         index = [
