@@ -78,12 +78,12 @@ def predict(archive_folder, test_file, output_file, cuda_device):
                 res["prediction"] = [(k[0], k[1], v) for k, v in predicted_ner[i].items()]
                 documents[doc_ids[i]].append(res)
 
-        documents = process_documents(documents)
+        documents = process_documents(documents, test_file)
 
         f.write("\n".join([json.dumps(x, cls=NumpyEncoder) for x in documents.values()]))
 
 
-def process_documents(documents):
+def process_documents(documents, test_file):
     for k, v in documents.items():
         v = sorted(v, key=lambda x: x["para_start"])
         for p, q in zip(v[:-1], v[1:]):
@@ -106,6 +106,14 @@ def process_documents(documents):
             "ner": predictions,
             "doc_id": k,
         }
+
+    with open(test_file, "r") as g:
+        for _, line in enumerate(g):
+            json_dict = json.loads(line)
+            doc_id = json_dict["doc_id"]
+            generic_section_categories = json_dict["generic_section_categories"]
+
+            documents[doc_id]["generic_section_categories"] = generic_section_categories
 
     return documents
 
