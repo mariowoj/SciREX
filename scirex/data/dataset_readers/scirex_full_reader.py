@@ -104,7 +104,7 @@ def clean_json_dict(json_dict):
     else:
         print("No generic section information in the json dict, adding empty category labels")
         print(json_dict.keys())
-        json_dict["generic_section_categories"] = ["" for _ in range(json_dict["sections"])]
+        json_dict["generic_section_categories"] = ["" for _ in range(len(json_dict["sections"]))]
 
 
 
