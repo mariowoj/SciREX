@@ -133,10 +133,6 @@ def add_generic_section_categories(documents, test_file):
 
             documents[doc_id]["generic_section_categories"] = generic_section_categories
 
-            print(sections)
-            print(generic_section_categories)
-            print(len(sections), len(generic_section_categories))
-
     return documents
 
 
