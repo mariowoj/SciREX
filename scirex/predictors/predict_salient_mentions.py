@@ -59,6 +59,7 @@ def predict(archive_folder, test_file, output_file, cuda_device):
             if "metadata" not in output_res:
                 print("Empty Output")
                 print(output_res)
+                continue
 
             metadata = output_res['metadata']
             doc_ids: List[str] = [m["doc_id"] for m in metadata]
