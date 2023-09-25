@@ -54,13 +54,15 @@ def predict(archive_folder, test_file, output_file, cuda_device):
         documents = {}
         for batch in tqdm(iterator):
             batch = nn_util.move_to_device(batch, cuda_device)  # Put on GPU.
-            print(len(batch.keys()), batch.keys())
+            print(batch["metadata"])
             output_res = model.decode_saliency(batch, saliency_threshold)
-
-#            if "metadata" not in output_res:
-#                print("Empty Output")
-#                print(output_res)
-#                continue
+            
+            if "metadata" not in output_res:
+                print("Empty Output")
+                print(output_res)
+                continue
+                
+            print(output_res["metadata"])
 
             metadata = output_res['metadata']
             doc_ids: List[str] = [m["doc_id"] for m in metadata]
