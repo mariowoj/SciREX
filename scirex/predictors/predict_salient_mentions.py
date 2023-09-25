@@ -4,6 +4,7 @@ import json
 import os
 from sys import argv
 from typing import Dict, List
+from click.core import iter_params_for_processing
 
 from tqdm import tqdm
 
@@ -51,7 +52,9 @@ def predict(archive_folder, test_file, output_file, cuda_device):
 
     with open(output_file, "w") as f:
         documents = {}
+        print(len(iterator))
         for batch in tqdm(iterator):
+            print(batch)
             batch = nn_util.move_to_device(batch, cuda_device)  # Put on GPU.
             output_res = model.decode_saliency(batch, saliency_threshold)
 
