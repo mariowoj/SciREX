@@ -52,7 +52,6 @@ def predict(archive_folder, test_file, output_file, cuda_device):
 
     with open(output_file, "w") as f:
         documents = {}
-        print(len(list(iterator)))
         for batch in tqdm(iterator):
             print(batch)
             batch = nn_util.move_to_device(batch, cuda_device)  # Put on GPU.
