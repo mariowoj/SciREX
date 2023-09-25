@@ -77,20 +77,6 @@ def predict(archive_folder, test_file, output_file, cuda_device):
 def main():
     archive_folder = argv[1]
     test_file = argv[2]
-
-    print("Input file")
-    with open(test_file, "r") as g:
-        for _, line in enumerate(g):
-            json_dict = json.loads(line)
-            doc_id = json_dict["doc_id"]
-            generic_section_categories = json_dict["generic_section_categories"]
-
-            len_sections = len(json_dict["sections"])
-            len_gen = len(generic_section_categories)
-            print(doc_id)
-            print(len_sections, len_gen, len_gen==len_sections)
-            print(generic_section_categories)
-
     output_file = argv[3]
     cuda_device = int(argv[4])
     predict(archive_folder, test_file, output_file, cuda_device)

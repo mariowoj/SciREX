@@ -100,14 +100,15 @@ def clean_json_dict(json_dict):
     )
 
     if "generic_section_categories" in json_dict:
-        print("setting generic sections")
-        print(json_dict["generic_section_categories"])
         json_dict["generic_section_categories"] = [category for category, _ in json_dict["generic_section_categories"]]
     else:
         print("No generic section information in the json dict, adding empty category labels")
         print(json_dict.keys())
         json_dict["generic_section_categories"] = ["" for _ in range(len(json_dict["sections"]))]
 
+    print(json_dict["doc_id"])
+    print(json_dict["sections"])
+    print(json_dict["sentences"])
 
 
     return json_dict
