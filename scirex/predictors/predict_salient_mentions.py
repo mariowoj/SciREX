@@ -55,7 +55,7 @@ def predict(archive_folder, test_file, output_file, cuda_device):
         for batch in tqdm(iterator):
             print(batch.keys())
             batch = nn_util.move_to_device(batch, cuda_device)  # Put on GPU.
-            print(batch.keys())
+            print(len(batch.keys()), batch.keys())
             output_res = model.decode_saliency(batch, saliency_threshold)
 
 #            if "metadata" not in output_res:
