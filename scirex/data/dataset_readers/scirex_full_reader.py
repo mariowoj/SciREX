@@ -99,8 +99,6 @@ def clean_json_dict(json_dict):
         json_dict["sentences"], json_dict["sections"]
     )
 
-    json_dict["generic_section_categories"] = [category for category, _ in json_dict["generic_section_categories"]]
-
     return json_dict
 
 
