@@ -162,7 +162,6 @@ class ScirexFullReader(DatasetReader):
                 generic_section_categories = json_dict["generic_section_categories"]
 
                 # Extract Document structure features
-                print(doc_id)
                 entities_to_features_map: Dict[Span, List[str]] = extract_sentence_features(
                     sentences, words, entities, generic_section_categories
                 )
