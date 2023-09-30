@@ -19,12 +19,10 @@ export TRAIN_PATH=$DATA_BASE_PATH/train.jsonl
 export DEV_PATH=$DATA_BASE_PATH/dev.jsonl
 export TEST_PATH=$DATA_BASE_PATH/test.jsonl
 
-export OUTPUT_BASE_PATH={OUTPUT_DIR:-outputs/pwc_outputs/experiment_scirex_full/{OUTPUT_DIR:-outputs/pwc_outputs/experiment_scirex_full/1}
-
-export RECOVER="--recover $OUTPUT_BASE_PATH/training_state_epoch_11.th"
+export OUTPUT_BASE_PATH=${OUTPUT_DIR:-outputs/pwc_outputs/experiment_scirex_full/$1}
 
 export bert_fine_tune=10,11,pooler
 
 nw=1 lw=1 rw=1 em=false \
 relation_cardinality=4 \
-allennlp train -s OUTPUTBASEPATH−−include−packagescirexOUTPUT_BASE_PATH --include-package scirex $RECOVER $CONFIG_FILE
+allennlp train -s $OUTPUT_BASE_PATH --include-package scirex --recover $OUTPUT_BASE_PATH/training_state_epoch_11_11.th  $CONFIG_FILE
