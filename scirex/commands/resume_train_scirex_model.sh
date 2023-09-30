@@ -25,4 +25,4 @@ export bert_fine_tune=10,11,pooler
 
 nw=1 lw=1 rw=1 em=false \
 relation_cardinality=4 \
-allennlp train -s $OUTPUT_BASE_PATH --include-package scirex --recover $OUTPUT_BASE_PATH/training_state_epoch_11_11.th  $CONFIG_FILE
+allennlp train -s $OUTPUT_BASE_PATH --include-package scirex --recover $OUTPUT_BASE_PATH/training_state_epoch_11.th $CONFIG_FILE
