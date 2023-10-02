@@ -1,5 +1,5 @@
 export test_file=scirex_dataset/release_data/test.jsonl
-export test_output_folder=test_outputs/
+export test_output_folder=content/drive/MyDrive/SciREX/test_outputs/
 export scirex_archive=content/drive/MyDrive/SciREX/outputs/experiment_scirex_full/main/
 export scirex_coreference_archive=content/drive/MyDrive/SciREX/outputs/experiment_coreference/main/
 export cuda_device=0
