@@ -59,8 +59,6 @@ def predict(archive_folder, test_file, output_file, cuda_device):
             
             if "metadata" not in output_res:
                 print("Empty Output")
-                print(output_res)
-                continue
                 
             print(output_res["metadata"])
 
