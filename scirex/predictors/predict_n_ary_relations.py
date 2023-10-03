@@ -74,7 +74,7 @@ def predict(archive_folder, span_file, cluster_file, output_file, cuda_device):
         for batch in tqdm(iterator):
             with torch.no_grad() :
                 batch = nn_util.move_to_device(batch, cuda_device)
-               try:
+                try:
                     output_res = model.decode_relations(batch)
                 except Exception as e:
                     print("Error during relations decoding:", e)
