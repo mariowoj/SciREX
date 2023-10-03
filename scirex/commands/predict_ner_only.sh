@@ -2,7 +2,7 @@
 export test_file=scirex_dataset/release_data/test.jsonl
 export test_output_folder=../drive/MyDrive/SciREX/test_outputs/ner_only/
 export ner_output_folder=../drive/MyDrive/SciREX/test_outputs/ner_only/
-export scirex_archive=../drive/MyDrive/original/a100_b20_e20/outputs/pwc_outputs/experiment_scirex_full/main/
+export scirex_archive=../drive/MyDrive/SciREX/original/a100_b20_e20/outputs/pwc_outputs/experiment_scirex_full/main/
 export cuda_device=0
 
 echo "Predicting NER"
