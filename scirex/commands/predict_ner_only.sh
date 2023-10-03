@@ -1,6 +1,8 @@
 # https://github.com/viswavi/SciREX
 export test_file=scirex_dataset/release_data/test.jsonl
-mkdir -p $test_output_folder
+export test_output_folder=../drive/MyDrive/SciREX/test_outputs/ner_only/
+export ner_output_folder=../drive/MyDrive/SciREX/test_outputs/ner_only/
+export scirex_archive=../drive/MyDrive/SciREX/SI-SciREX/a100_b20_e20/outputs/pwc_outputs/experiment_scirex_full/main/
 
 echo "Predicting NER"
 python scirex/predictors/predict_ner.py \
