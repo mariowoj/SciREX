@@ -2,6 +2,7 @@
 export test_file=scirex_dataset/release_data/test.jsonl
 export test_output_folder=../drive/MyDrive/SciREX/test_outputs/salient_only/
 export scirex_archive=../drive/MyDrive/SciREX/SI-SciREX/a100_b20_e20/outputs/pwc_outputs/experiment_scirex_full/main/
+export cuda_device=0
 
 
 echo "Predicting Salient Mentions"
