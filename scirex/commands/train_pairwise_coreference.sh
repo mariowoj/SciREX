@@ -20,4 +20,4 @@ export TEST_PATH=$ERC_DATA_BASE_PATH/test.jsonl
 
 export OUTPUT_BASE_PATH=${OUTPUT_DIR:-outputs/pwc_outputs/experiment_coreference/$1/}
 
-python -m allennlp.run train -s $OUTPUT_BASE_PATH --include-package scirex $RECOVER --force $CONFIG_FILE
+python -m allennlp.run train -s $OUTPUT_BASE_PATH --include-package scirex $RECOVER $CONFIG_FILE
